@@ -29,6 +29,9 @@ func addMetricHandler(w http.ResponseWriter, r *http.Request, memStorage interna
 		}
 
 		memStorage.AddCounter(nameMetric, value)
+	default:
+		w.WriteHeader(http.StatusBadRequest)
+		return
 	}
 
 	w.WriteHeader(http.StatusOK)

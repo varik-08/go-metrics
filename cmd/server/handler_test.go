@@ -33,9 +33,9 @@ func TestAddMetricHandler(t *testing.T) {
 			vars:   map[string]string{"name": "test", "type": "gauge", "value": "dsfds"},
 		},
 		{
-			url:    "/update/counter/test/1.5",
+			url:    "/update/unknown/testCounter/100'",
 			status: http.StatusBadRequest,
-			vars:   map[string]string{"name": "test", "type": "counter", "value": "1.5"},
+			vars:   map[string]string{"name": "testCounter", "type": "unknown", "value": "100'"},
 		},
 	}
 	for _, tt := range tests {
